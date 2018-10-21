@@ -1,4 +1,6 @@
+# Animations Walkthrough Complete
 
+![imagen](../master/assets/sketch2.gif) 
 
 # How to Chain Animations for Impressive Visual Effects
 
@@ -7,6 +9,8 @@
 ![imagen](../master/assets/sketch1.gif) 
 
 ## 1. Add view's in viewController
+
+`01b887e (origin/master) Add uiviews and animation`  
 
 [LBTA ] (https://www.letsbuildthatapp.com/course_video?id=2982)
 
