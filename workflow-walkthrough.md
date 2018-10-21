@@ -1,52 +1,47 @@
-//
-//  ViewController.swift
-//  ChainedAnimationsLBTA
-//
-//  Created by Brian Voong on 3/28/18.
-//  Copyright © 2018 Brian Voong. All rights reserved.
-//
 
-import UIKit
 
-class ViewController: UIViewController {
+# How to Chain Animations for Impressive Visual Effects
+
+### Let's learn how to chain animations together in today's lesson to achieve some stunning visual effects.  Nothing too hard, but you need to make sure you don't overdo it with animations.  
+
+![imagen](../master/assets/sketch1.gif) 
+
+## 1. Add view's in viewController
+
+[LBTA ] (https://www.letsbuildthatapp.com/course_video?id=2982)
+
+### Steps
+
+1. Create a  title label and body lable programmatically  
+1.1 into stack view: title and body title
+1.2 Add constraints 
+```swift
+    let stackView = UIStackView(arrangedSubviews: [titleLabel, bodyLabel])
+    stackView.axis = .vertical
+    stackView.spacing = 8
+    view.addSubview(stackView)  // Add constraint after add to subview
     
-    // setup UI
-    let titleLabel = UILabel()
-    let bodyLabel = UILabel()
-    
-    fileprivate func setupLabels() {
-//        titleLabel.backgroundColor = .red
-//        bodyLabel.backgroundColor = .green
-        titleLabel.numberOfLines = 0
-        titleLabel.text = "Welcome To Company XYZ"
-        titleLabel.font = UIFont(name: "Futura", size: 34)
-        bodyLabel.numberOfLines = 0
-        bodyLabel.text = "Hello there! Thanks so much for downloading our brand new app and giving us a try. Make sure to leave us a good review in the AppStore."
-    }
-    
-    fileprivate func setupStackView() {
-        let stackView = UIStackView(arrangedSubviews: [titleLabel, bodyLabel])
-        stackView.axis = .vertical
-        stackView.spacing = 8
-        view.addSubview(stackView)  // Add constraint after add to subview
-        
-        //enables autolayout
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        stackView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -100).isActive = true
-    }
-    
-    override func viewDidLoad() {
+    //enables autolayout
+    stackView.translatesAutoresizingMaskIntoConstraints = false
+    stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+    stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+    stackView.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -100).isActive = true
+
+```
+## 2. Add animation 
+
+2.1 When the user tapped in the viewController, run chain animation
+```swift
+ 
+ override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupLabels()
-        setupStackView()
-        
+       ...
+       
         // fun animations
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleTapAnimations)))
     }
-    
+
+
     @objc fileprivate func handleTapAnimations() {
         print("Animating")
         // 1. Translate label title to left
@@ -79,23 +74,5 @@ class ViewController: UIViewController {
             
         }
     }
-}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```
